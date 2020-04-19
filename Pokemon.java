@@ -1,30 +1,25 @@
-import javax.sound.midi.VoiceStatus;
 
-public class Pokemon
+public abstract  class Pokemon
 {
-    private int maxHP ;
+    protected int maxHP ;
     private int level ;
     private int eXP ;
     private int maxEXP ;
-    private String name;
-    private int hP;
+    protected String name;
+    protected int hP;
     private int aTK;
     private int dEF; // Protect point;
     private String type ;
     private int staninaPoint ; // SP when pokemon use art for attack
     private int maxSP;
     private String voice;
+    
+    public Pokemon(String name){
+        this.name = name;
+    }
 
-
-    public void attacked(int aTK)
-    {   
-        if(aTK<=this.dEF){
-            aTK = 1;
-        }
-        else{
-            aTK= aTK- this.dEF;
-        }
-        this.hP = this.hP -aTK;
+    public abstract void attack(Pokemon enemy);
+    
     public void setATK(int atk) {
         this.aTK =atk;
     }
@@ -101,12 +96,32 @@ public class Pokemon
     public void setName( String name){
         this.name = name;
     }
+    public String getName(){
+        return this.name;
+    }
 
+
+    public boolean damage(int value){ 
+        int currentHP = hp - value;
+        if(this.hP == 0 ){
+            return false;
+        }
+        if(currentHP >= 0){
+            this.hP = currentHP;    
+        }
+        else
+            {
+                this.hP = 0;
+            }
+       }
     public void setHP(int hp){
         this.hP =hp;
     }
     public int setHP(){
         return this.hP;
+    }
+    public String toString(){
+        return name;
     }
 
 
