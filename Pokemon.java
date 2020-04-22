@@ -1,4 +1,4 @@
-
+import java.util.*;
 public abstract  class Pokemon
 {
     protected int maxHP ;
@@ -16,6 +16,10 @@ public abstract  class Pokemon
     
     public Pokemon(String name){
         this.name = name;
+    }
+    public Pokemon(String name,int maxHP){
+        this.name = name;
+        this.hP = (int)(Math.random()*maxHP);
     }
 
     public abstract void attack(Pokemon enemy);
@@ -102,7 +106,7 @@ public abstract  class Pokemon
 
 
     public boolean damage(int value){ 
-        int currentHP = hp - value;
+        int currentHP = this.hP - value;
         if(this.hP == 0 ){
             return false;
         }
@@ -113,11 +117,15 @@ public abstract  class Pokemon
             {
                 this.hP = 0;
             }
+            return true;
        }
     public void setHP(int hp){
         this.hP =hp;
     }
     public int setHP(){
+        return this.hP;
+    }
+    public int getHP(){
         return this.hP;
     }
     public String toString(){

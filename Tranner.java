@@ -3,10 +3,11 @@ import java.util.*;
 public class Tranner {
     
     private ArrayList<Pokemon> bag ;
+    private Scanner sc;
     public Tranner(){
         bag = new ArrayList<Pokemon>();
         bag.add(new Pikachu("Pikachu"));
-        bag.add(new Pikachu("Pikachu2"));
+        bag.add(new Raichu("My Raichu"));
         
 
     }
@@ -14,57 +15,100 @@ public class Tranner {
     public void play(){
         String cmd  ;
         Pokemon enemy = new Pikachu("Pikachu fo enemy");
-        Scanner sc = new Scanner(System.in);
-        do{ System.out.println("menu: print:print name Pokemon in bag \tChangeName\tq:exit game\t attack:");
+        sc = new Scanner(System.in);
+        do{ System.out.println("menu: print:print name Pokemon in bag \tChangeName\tquit:exit game\t\ncatch");
             cmd = sc.nextLine();
             if(cmd.equals("print")){
-                printPokemon();
+                printPokemon(bag);
             }
             if(cmd.equals("ChangeName")){
                 ChangeName();
             }
             if(cmd.equals("attack")){
-                findPokemonInBag("Pikachu").attack(enemy);
+               
                 
             }
+            if(cmd.equals("catch")){
+                catchPokemon();
 
-
-        }while(!(cmd.equals("q")));
-
-    }
-
-    public void printPokemon(){
-        System.out.println("\t"+"Pokemon in bag");    
-        for(Pokemon p: bag){
-            System.out.println(p.getName());
-        }
-
-    }
-    public Pokemon findPokemonInBag(String name){
-        for(Pokemon p:bag){
-            if(p.getName().equals(name)){
-                return p;  
             }
+
+
+        }while(!(cmd.equals("quit")));
+
+    }
+
+    public void printPokemon(ArrayList<Pokemon> pokemons){
+           
+        int number = 0 ;
+        for(Pokemon p: pokemons){
+            System.out.println("No. "+ number +" "+p.getName() + " HP: "+p.getHP());
+            number++;
         }
-        return null;
+
+    }
+   
+    public void  catchPokemon(){
+        System.out.println("Cath Pokemon");
+        ArrayList<Pokemon> pokemons = PokemonRandomizer.getPokemon(5);
+            
+            int no= 0;
+            int noCatch = 0;
+            printPokemon(pokemons);
+            System.out.println("You catch(-1 to run):");
+            no = sc.nextInt();
+            sc.nextLine();
+            if(no < 0){
+                System.out.println("run !!");
+                return ; 
+
+            }
+            Pokemon wildPokemon = pokemons.get(no);
+            
+            System.out.println("Select your pokemon :");
+            printPokemon(bag);
+           
+           
+            no = sc.nextInt();
+            sc.nextLine();
+            Pokemon myPokemon = bag.get(no);
+
+            boolean isWin = false;
+            do{
+                myPokemon.attack(wildPokemon);
+                if(wildPokemon.getHP()== 0){
+                    isWin = true;
+                    break;
+                }
+                else {
+                    wildPokemon.attack(myPokemon);
+                    if(myPokemon.getHP()== 0){
+                        isWin = false;
+                        break;
+                    }
+                }
+            }while(true);
+
+            if(isWin == true){
+                bag.add(wildPokemon);
+                System.out.println("You catch !!!!");
+            }
+            else{
+                System.out.println(wildPokemon.getName() +" win");
+            }
+            
+        
     }
 
     public void ChangeName(){
         System.out.println("Select your Pokemon to Change name");
-        printPokemon();
-        Scanner sc = new Scanner(System.in);
-        String name;
-        System.out.print("Select name :");
-        name = sc.nextLine();
-        for(Pokemon p:bag){
-            if(p.getName().equals(name)){
-                System.out.print("New name:");
-                p.setName(sc.nextLine());
-                System.out.println("Complete !!");
-                break; 
-            }
-
-        }
+        printPokemon(bag);
+        int no = 0;
+        no = sc.nextInt();
+        sc.nextLine();
+        System.out.println("New name :");
+        bag.get(no).setName(sc.nextLine());
+        
     }
 
 
