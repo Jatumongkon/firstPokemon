@@ -13,12 +13,12 @@ public class MainGame extends JFrame{
         JLabel trainerNameLabel = new JLabel(this.trainer.getNamePlayer());
         JLabel pokemonName = new JLabel();
         
-        JButton firstPokemon = new JButton(trainer.getBag().get(0)+"Status");
+        JButton Statusbag = new JButton("print pokemon in bag");
 
        
         c.add(trainerNameLabel);
         c.add(pokemonName); 
-        c.add(firstPokemon);
+        c.add(Statusbag);
         
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
 
@@ -28,9 +28,14 @@ public class MainGame extends JFrame{
         }
         pokemonName.setText(pName);
 
-        firstPokemon.addActionListener(new ActionListener(){
+        Statusbag.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                PokemonStatus ps = new PokemonStatus(trainer.getBag().get(0));
+                int i = 0;
+                for(Pokemon p: trainer.getBag()){
+                   PokemonStatus ps = new PokemonStatus(trainer.getBag().get(i));
+                   i++;
+                }
+               
                 }
             });
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,8 +1,9 @@
 
-public class  Kabigon extends Pikachu {
+public class  Kabigon extends Pokemon {
     public Kabigon(String name){
         super(name);
         setHP((int)(Math.random()*500));
+        setATK(5);
         
          
     }
@@ -10,7 +11,7 @@ public class  Kabigon extends Pikachu {
 
     public void attack(Pokemon enemy){
         System.out.println("Pokemon " + getName() + " attack " + enemy.getName());
-        enemy.damage(5); 
+        enemy.damage(getATK()); 
         System.out.println(getName() + " HP: "+getHP()+"\t"+ enemy.getName()+" HP: "+enemy.getHP());
 
     }

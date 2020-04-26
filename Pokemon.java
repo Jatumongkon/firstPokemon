@@ -2,33 +2,35 @@ import java.util.*;
 public abstract  class Pokemon
 {
     protected int maxHP ;
-    private int level ;
-    private int eXP ;
-    private int maxEXP ;
+    private int level =1 ;
+    private int EXP= 0 ;
+    private int maxEXP = 20 ;
     protected String name;
     protected int hP;
-    private int aTK;
-    private int dEF; // Protect point;
+    private int ATK;
+    private int DEF; // Protect point;
     private String type ;
     private int staninaPoint ; // SP when pokemon use art for attack
     private int maxSP;
-    private String voice;
+    
     
     public Pokemon(String name){
         this.name = name;
+        
     }
-    public Pokemon(String name,int maxHP){
+    public Pokemon(String name,int HP){
         this.name = name;
-        this.hP = (int)(Math.random()*maxHP);
+        this.maxHP = ((int)(Math.random()*HP));
+        this.hP = this.maxHP; 
     }
 
     public abstract void attack(Pokemon enemy);
     
-    public void setATK(int atk) {
-        this.aTK =atk;
+    public void setATK(int ATk) {
+        this.ATK = ATk ;
     }
     public int getATK(){
-        return this.aTK; 
+        return this.ATK; 
     }
     
     public void setLevel(int level){
@@ -38,16 +40,24 @@ public abstract  class Pokemon
     
     public void eatBerry(){
         this.hP = this.hP + 20;
-        if (this.maxHP < this.hP){
+       if (this.maxHP < this.hP){
             this.hP= this.maxHP ;
-        }
+        } 
     }
-    
+    public int getMaxHP(){
+        return this.maxHP;
+    }
+    public void setMaxHP(int maxHP){
+        this.maxHP = maxHP;
+
+    }
+
+
     public void levelUP(){
         this.maxHP = this.maxHP +10;
-        this.aTK = this.aTK+2;
-        this.dEF = this.dEF +1;
-        this.eXP = 0;
+        this.ATK = this.ATK+2;
+        this.DEF = this.DEF +1;
+        this.EXP = 0;
         this.maxEXP = this.maxEXP +10;
 
     }
@@ -55,13 +65,13 @@ public abstract  class Pokemon
         return this.level;
     }
     public void setEXP( int exp){
-        this.eXP= exp;
+        this.EXP= exp;
     }
     public void setMaxEXP(int maxEXP){
         this.maxEXP = maxEXP;
     }
     public int getEXP(){
-        return this.eXP;
+        return this.EXP;
     }
     public int getMaxEXP(){
         return this.maxEXP;
@@ -90,12 +100,6 @@ public abstract  class Pokemon
         return this.maxSP;
     }
 
-    public void setVoice(String voice){
-        this.voice = voice;
-    }
-    public String getVoice(){
-        return this.voice;
-    }
 
     public void setName( String name){
         this.name = name;

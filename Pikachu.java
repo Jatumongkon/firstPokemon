@@ -5,10 +5,13 @@ public  class Pikachu extends Pokemon{
         public Pikachu(String name){
             super(name);
             setHP((int)(Math.random()*100));
+            setMaxHP(this.hP);
+            setATK(10);
            
         }
         public Pikachu(String name,int maxHP){
             super(name,maxHP);
+            setATK(10);
         }
        
 

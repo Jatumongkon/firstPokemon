@@ -7,7 +7,7 @@ public class Trainer {
     private Scanner sc;
     public Trainer(String name){
         bag = new ArrayList<Pokemon>();
-        bag.add(new Pikachu("Pikachu"));
+        bag.add(new Pikachu("Pikachu",100));
         bag.add(new Raichu("My Raichu"));
 
         this.namePlayer = name;
