@@ -5,10 +5,12 @@ public class Trainer {
     private ArrayList<Pokemon> bag ;
     private String namePlayer;
     private Scanner sc;
+    private int bagCapacity = 0 ;
     public Trainer(String name){
         bag = new ArrayList<Pokemon>();
         bag.add(new Pikachu("Pikachu",100));
         bag.add(new Raichu("My Raichu"));
+        bagCapacity += 2;
 
         this.namePlayer = name;
         
@@ -120,6 +122,12 @@ public class Trainer {
 
     public ArrayList<Pokemon> getBag(){
         return bag;
+    }
+    public void pulseCapacity(){
+        this.bagCapacity ++;
+    }
+    public int getCapacity(){
+        return this.bagCapacity;
     }
 
 

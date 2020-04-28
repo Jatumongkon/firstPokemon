@@ -14,12 +14,14 @@ public class PokemonStatus extends JFrame {
         JLabel atk = new JLabel("ATK: "+pokemon.getATK());
         JLabel level = new JLabel("Level: " + pokemon.getLevel() + "EXP: "+ pokemon.getEXP()+"/"+pokemon.getMaxHP());
         JButton eatBerry = new JButton("Eat berry (+20 hp)");
+        JButton changeName = new JButton("Change name");
 
         c.add(name);
         c.add(hp);
         c.add(level);
         c.add(atk);
         c.add(eatBerry);
+        c.add(changeName);
         eatBerry.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 pokemon.eatBerry();
@@ -27,7 +29,12 @@ public class PokemonStatus extends JFrame {
               
                 }
             });
-        
+        changeName.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("test");
+              
+                }
+            });
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
 
         //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -1,4 +1,7 @@
 import java.util.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 
 public class Tranner {
     
@@ -100,7 +103,8 @@ public class Tranner {
         
     }
 
-    public void ChangeName(){
+    
+    public void ChangeName(){ //over
         System.out.println("Select your Pokemon to Change name");
         printPokemon(bag);
         int no = 0;
