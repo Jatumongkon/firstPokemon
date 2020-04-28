@@ -34,9 +34,9 @@ public class CatchPokemon extends JFrame{
 
                 BattePokemonGUI ps = new BattePokemonGUI(t.getBag(),wPokemon);
                 ps.setVisible(true);
-                
+                dispose();
                }
-              
+             
               
                 }
             });

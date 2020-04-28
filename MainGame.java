@@ -5,7 +5,7 @@ import java.awt.event.*;
 
 public class MainGame extends JFrame{
     private Trainer trainer;
-
+    
     public MainGame(Trainer trainer){
         super("Pokemon Game");
         this.trainer = trainer;
@@ -24,6 +24,8 @@ public class MainGame extends JFrame{
         c.add(CatchButton);
         
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
+        setSize(400, 200);
+        setVisible(true);
         
         String pName = "Pokemon: ";
         for(Pokemon p: trainer.getBag()){
@@ -35,7 +37,7 @@ public class MainGame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 int i = 0;
                 for(Pokemon p: trainer.getBag()){
-                   PokemonStatus ps = new PokemonStatus(trainer.getBag().get(i));
+                   PokemonStatus ps = new PokemonStatus(trainer.getBag().get(i),trainer);
                    i++;
                 }
                
@@ -44,14 +46,15 @@ public class MainGame extends JFrame{
         CatchButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent b){
               //  trainer.catchPokemon(); 
-              System.out.print("test catch");
+            System.out.print("test catch");
             CatchPokemon ps = new CatchPokemon(trainer.getBag(),trainer);
+            //c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+            ps.setVisible(true);
             }
 
         });
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);
-        setVisible(true);
+       
+        
 
     }
 }

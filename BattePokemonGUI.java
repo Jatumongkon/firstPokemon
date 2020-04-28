@@ -60,6 +60,7 @@ public class BattePokemonGUI extends JFrame{
 					else{
 						System.out.println(enemy.getName() +" win");
 					}
+					dispose();
 			
 		}});
 		btn.setBounds(126, 123, 81, 23);

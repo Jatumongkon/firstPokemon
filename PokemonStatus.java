@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 public class PokemonStatus extends JFrame {
     Pokemon pokemon; 
-    public PokemonStatus(Pokemon pokemon){
+    public PokemonStatus(Pokemon pokemon,Trainer t){
         super("Pokemon Status "+ pokemon.getName());
         this.pokemon = pokemon;
 
@@ -32,7 +32,8 @@ public class PokemonStatus extends JFrame {
         changeName.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 System.out.println("test");
-              
+               // ChangeGUI newframe = new ChangeGUI();
+               // newframe.setVisible(true);
                 }
             });
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
