@@ -9,7 +9,7 @@ public class GymGUI extends JFrame {
     public GymGUI(Trainer trainer){
         gymPokemon = new PokemonRandomizer().getPokemon(6);
         Container c = getContentPane();
-		setTitle("Pokemon Gym Battle");
+		setTitle("Pokemon Gym Battle "+trainer.getGymWin()+"/3");
 		c.setVisible(true);
         setSize(400, 200);
         

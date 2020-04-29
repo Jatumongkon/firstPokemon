@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-import java.util.*;
+
 
 
 public class PokemonRandomizer {
@@ -23,6 +23,9 @@ public class PokemonRandomizer {
             }
             if(type == 2){
                 pokemons.add(new Raichu("Wild Raichu"));
+            }
+            if(type == 3){
+                pokemons.add(new Charmander("Wild Charmander"));
             }
         }
         return pokemons;

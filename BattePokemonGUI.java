@@ -20,7 +20,7 @@ public class BattePokemonGUI extends JFrame{
 		
 		Container c = getContentPane();
 		setBounds(100, 100, 343, 273);
-		setTitle("Pokemon Battle");
+		setTitle("Choose your Pokemon ");
 		c.setVisible(true);
 		getContentPane().setLayout(null);
 		

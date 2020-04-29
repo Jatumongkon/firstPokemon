@@ -17,6 +17,7 @@ public class PokemonStatus extends JFrame {
         JButton eatBerry = new JButton("Eat berry (+20 hp) :"+t.getBerry());
         JButton changeName = new JButton("Change name");
         JButton free = new JButton("free");
+        JButton UpdateDisplay = new JButton("Update display");
         c.add(name);
         c.add(hp);
         c.add(level);
@@ -24,22 +25,23 @@ public class PokemonStatus extends JFrame {
         c.add(eatBerry);
         c.add(changeName);
         c.add(free);
+        c.add(UpdateDisplay);
+        
         eatBerry.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
+                if(t.getBerry()>0){
                 pokemon.eatBerry();
                 hp.setText("HP: "+ pokemon.getHP() +"/"+pokemon.getMaxHP());
                 t.setBerry(t.getBerry()-1);
                 eatBerry.setText("Eat berry (+20 hp) :"+t.getBerry());
                 
                 }
+                }
             });
         changeName.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 System.out.println("test");
-                //ChangeNameGUI newframe = new ChangeNameGUI();
-             
-                // newframe.setVisible(true);
-               EventQueue.invokeLater(new Runnable() {
+                EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     ChangeNameGUI frame = new ChangeNameGUI(pokemon);
                     frame.setVisible(true);
@@ -56,16 +58,25 @@ public class PokemonStatus extends JFrame {
                     t.setCapacity(t.getCapacity()-1);
                     JOptionPane.showMessageDialog(null,"Get some berry");
                     }
-                   else//(t.getCapacity()==1)
+                   else
                     {
                         JOptionPane.showMessageDialog(null,"Can't free last Pokemon");
                         
                     }
             }});
+        UpdateDisplay.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e) {
+                hp.setText("HP: "+ pokemon.getHP() +"/"+pokemon.getMaxHP());
+                name.setText(pokemon.getName());
+                atk.setText("ATK: "+pokemon.getATK());
+                level.setText("Level: " + pokemon.getLevel() + "EXP: "+ pokemon.getEXP()+"/"+pokemon.getMaxEXP());
+                eatBerry.setText("Eat berry (+20 hp) :"+t.getBerry());
+            }
+        });
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
 
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);
+        
+        setSize(400, 300);
         setVisible(true);
 
     }
