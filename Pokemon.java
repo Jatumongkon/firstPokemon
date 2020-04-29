@@ -12,7 +12,6 @@ public abstract  class Pokemon
     private String type ;
     private int staninaPoint ; // SP when pokemon use art for attack
     private int maxSP;
-    private Scanner sc;
     
     
     public Pokemon(String name){

@@ -38,7 +38,7 @@ public class PokemonStatus extends JFrame {
                 System.out.println("test");
                 //ChangeNameGUI newframe = new ChangeNameGUI();
              
-               // newframe.setVisible(true);
+                // newframe.setVisible(true);
                EventQueue.invokeLater(new Runnable() {
                 public void run() {
                     ChangeNameGUI frame = new ChangeNameGUI(pokemon);

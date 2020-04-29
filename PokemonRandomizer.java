@@ -11,7 +11,7 @@ public class PokemonRandomizer {
             return pokemons;
         }
         
-        int pokemonNumber = (int)(Math.random()*num)+1;
+        int pokemonNumber = num+1;
         System.out.println("Pokemon around you");
         for(int i=0 ; i< pokemonNumber; ++i){
             int type=(int)(Math.random()*3);
@@ -26,6 +26,7 @@ public class PokemonRandomizer {
             }
         }
         return pokemons;
+        
     }
 
 }

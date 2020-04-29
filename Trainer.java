@@ -7,14 +7,18 @@ public class Trainer {
     private Scanner sc;
     private int bagCapacity = 0 ;
     private int berryNum =0 ;
+    private int gymWin;
     public Trainer(String name){
         bag = new ArrayList<Pokemon>();
         bag.add(new Pikachu("Pikachu",100));
         bag.add(new Raichu("My Raichu"));
+        //bag.get(0).setATK(200);
+        bag.get(0).setATK(40);
         setBerry(getBerry()+10);
         setCapacity(getCapacity()+2);
         System.out.println(getCapacity());
         this.namePlayer = name;
+        gymWin = 0;
         
 
     }
@@ -136,6 +140,13 @@ public class Trainer {
     }
     public int getBerry(){
         return berryNum;
+    }
+    public void setGymWin(int win){
+        this.gymWin = win;
+
+    }
+    public int getGymWin(){
+        return this.gymWin;
     }
 
 

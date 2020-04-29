@@ -32,10 +32,10 @@ public class CatchPokemon extends JFrame{
                 }
                else{
 
-                BattePokemonGUI ps = new BattePokemonGUI(t.getBag(),wPokemon,"Catch");
+                BattePokemonGUI ps = new BattePokemonGUI(t.getBag(),wPokemon,"Catch",t);
                 ps.setVisible(true);
                 dispose();
-                t.setCapacity(t.getCapacity()+1);
+              
                
                }
              

@@ -8,7 +8,8 @@ public class BattePokemonGUI extends JFrame{
 	private Pokemon enemy;
 	private Pokemon myPokemon;
 	private boolean isWin;
-    public  BattePokemonGUI(ArrayList<Pokemon> bag, Pokemon enemy,String status){
+	private boolean battleEND;
+    public  BattePokemonGUI(ArrayList<Pokemon> bag, Pokemon enemy,String status,Trainer t){
 		this.enemy = enemy;
 		int numberPokemon = 0;
 		ArrayList<String> pokemonname = new ArrayList<String>();
@@ -16,7 +17,6 @@ public class BattePokemonGUI extends JFrame{
 			pokemonname.add(p.getName());
 			numberPokemon++;
 		}
-		//System.out.println(numberPokemon);
 		
 		Container c = getContentPane();
 		setBounds(100, 100, 343, 273);
@@ -57,12 +57,24 @@ public class BattePokemonGUI extends JFrame{
 					if(isWin == true){
 						if(status.equals("Catch")){
 						bag.add(enemy);	
-						}
-						myPokemon.expUP((int)(Math.random()*100)+enemy.getMaxHP() );
 						JOptionPane.showMessageDialog(null,
 	    "You get " + enemy.getName(),
 	    "status",
 		JOptionPane.WARNING_MESSAGE);
+						t.setCapacity(t.getCapacity()+1);
+						}
+
+						if(status.equals("Batte")){
+							JOptionPane.showMessageDialog(null,
+	    "You win " ,
+	    "status",
+		JOptionPane.WARNING_MESSAGE);
+							t.setGymWin(t.getGymWin()+1);
+							
+						}
+
+						myPokemon.expUP((int)(Math.random()*100)+enemy.getMaxHP() );
+						
 						
 					//	System.out.println("You win !!!!");
 					}
@@ -74,6 +86,7 @@ public class BattePokemonGUI extends JFrame{
 						JOptionPane.WARNING_MESSAGE);
 					}
 					dispose();
+					battleEND = true;
 			
 		}});
 		btn.setBounds(126, 123, 81, 23);
@@ -89,6 +102,10 @@ public class BattePokemonGUI extends JFrame{
 	public Pokemon getMyPokemon(){
 		return this.myPokemon;
 	}
-	
-	
+	public boolean getWin(){
+		return this.isWin;
+	}
+	public boolean getBattleEND(){
+		return this.battleEND;
+	}
 	}
