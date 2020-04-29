@@ -3,8 +3,8 @@ public abstract  class Pokemon
 {
     protected int maxHP ;
     private int level =1 ;
-    private int EXP= 0 ;
-    private int maxEXP = 20 ;
+    private int EXP;
+    private int maxEXP  ;
     protected String name;
     protected int hP;
     private int ATK;
@@ -23,6 +23,8 @@ public abstract  class Pokemon
         this.name = name;
         this.maxHP = ((int)(Math.random()*HP));
         this.hP = this.maxHP; 
+        this.EXP = 0;
+        this.maxEXP =30;
     }
 
     public abstract void attack(Pokemon enemy);
@@ -53,6 +55,14 @@ public abstract  class Pokemon
 
     }
 
+    public void expUP(int exp){
+        this.EXP += exp;
+        if(this.EXP > this.maxEXP){
+            this.EXP = this.EXP-this.maxEXP;
+            levelUP();
+        }
+
+    }
 
     public void levelUP(){
         this.maxHP = this.maxHP +10;
@@ -60,6 +70,7 @@ public abstract  class Pokemon
         this.DEF = this.DEF +1;
         this.EXP = 0;
         this.maxEXP = this.maxEXP +10;
+        this.level+=1;
 
     }
     public int getLevel(){

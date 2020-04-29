@@ -4,6 +4,7 @@ import java.math.*;
 public  class Raichu  extends Pikachu{
         public Raichu(String name){
             super(name,500);
+            setMaxEXP(100);
             
         }
        

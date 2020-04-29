@@ -5,7 +5,6 @@ public class  Kabigon extends Pokemon {
         setMaxHP((int)(Math.random()*500));
         this.hP =getMaxHP();
         setATK(5);
-        
          
     }
    

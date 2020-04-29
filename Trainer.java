@@ -6,12 +6,14 @@ public class Trainer {
     private String namePlayer;
     private Scanner sc;
     private int bagCapacity = 0 ;
+    private int berryNum =0 ;
     public Trainer(String name){
         bag = new ArrayList<Pokemon>();
         bag.add(new Pikachu("Pikachu",100));
         bag.add(new Raichu("My Raichu"));
-        bagCapacity += 2;
-
+        setBerry(getBerry()+10);
+        setCapacity(getCapacity()+2);
+        System.out.println(getCapacity());
         this.namePlayer = name;
         
 
@@ -123,13 +125,18 @@ public class Trainer {
     public ArrayList<Pokemon> getBag(){
         return bag;
     }
-    public void pulseCapacity(){
-        this.bagCapacity ++;
+    public void setCapacity(int num){
+        this.bagCapacity = num;
     }
     public int getCapacity(){
         return this.bagCapacity;
     }
-
+    public void setBerry(int num){
+        this.berryNum = num;
+    }
+    public int getBerry(){
+        return berryNum;
+    }
 
 
 }

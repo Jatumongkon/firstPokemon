@@ -2,11 +2,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.math.*;
 
 public class BattePokemonGUI extends JFrame{
 	private Pokemon enemy;
 	private Pokemon myPokemon;
-    public  BattePokemonGUI(ArrayList<Pokemon> bag, Pokemon enemy){
+	private boolean isWin;
+    public  BattePokemonGUI(ArrayList<Pokemon> bag, Pokemon enemy,String status){
 		this.enemy = enemy;
 		int numberPokemon = 0;
 		ArrayList<String> pokemonname = new ArrayList<String>();
@@ -14,7 +16,7 @@ public class BattePokemonGUI extends JFrame{
 			pokemonname.add(p.getName());
 			numberPokemon++;
 		}
-		System.out.println(numberPokemon);
+		//System.out.println(numberPokemon);
 		
 		Container c = getContentPane();
 		setBounds(100, 100, 343, 273);
@@ -36,7 +38,7 @@ public class BattePokemonGUI extends JFrame{
 					}
 					
 				}
-				boolean isWin = false;
+				isWin = false;
 					do{
 						myPokemon.attack(enemy);
 						if(enemy.getHP()== 0){
@@ -53,11 +55,23 @@ public class BattePokemonGUI extends JFrame{
 					}while(true);
 		
 					if(isWin == true){
-						bag.add(enemy);
-						System.out.println("You catch !!!!");
+						if(status.equals("Catch")){
+						bag.add(enemy);	
+						}
+						myPokemon.expUP((int)(Math.random()*100)+enemy.getMaxHP() );
+						JOptionPane.showMessageDialog(null,
+	    "You get " + enemy.getName(),
+	    "status",
+		JOptionPane.WARNING_MESSAGE);
+						
+					//	System.out.println("You win !!!!");
 					}
 					else{
-						System.out.println(enemy.getName() +" win");
+						//System.out.println(enemy.getName() +" win");
+						JOptionPane.showMessageDialog(null,
+						enemy.getName() + " win",
+						"status",
+						JOptionPane.WARNING_MESSAGE);
 					}
 					dispose();
 			
@@ -75,5 +89,6 @@ public class BattePokemonGUI extends JFrame{
 	public Pokemon getMyPokemon(){
 		return this.myPokemon;
 	}
+	
 	
 	}

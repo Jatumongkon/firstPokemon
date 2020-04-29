@@ -28,13 +28,15 @@ public class CatchPokemon extends JFrame{
         Catch.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 if(t.getCapacity()>=10){
-
+                    JOptionPane.showMessageDialog(null,"Bag full");
                 }
                else{
 
-                BattePokemonGUI ps = new BattePokemonGUI(t.getBag(),wPokemon);
+                BattePokemonGUI ps = new BattePokemonGUI(t.getBag(),wPokemon,"Catch");
                 ps.setVisible(true);
                 dispose();
+                t.setCapacity(t.getCapacity()+1);
+               
                }
              
               

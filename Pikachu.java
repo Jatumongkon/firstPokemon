@@ -8,10 +8,12 @@ public  class Pikachu extends Pokemon{
             setMaxHP(this.hP);
             setATK(10);
            
+           
         }
         public Pikachu(String name,int maxHP){
             super(name,maxHP);
             setATK(10);
+           
         }
        
 
