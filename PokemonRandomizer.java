@@ -14,7 +14,7 @@ public class PokemonRandomizer {
         int pokemonNumber = num+1;
         System.out.println("Pokemon around you");
         for(int i=0 ; i< pokemonNumber; ++i){
-            int type=(int)(Math.random()*3);
+            int type=(int)(Math.random()*6);
             if(type == 0){
                 pokemons.add(new Pikachu("Wild Pikachu"));
             }
@@ -26,6 +26,12 @@ public class PokemonRandomizer {
             }
             if(type == 3){
                 pokemons.add(new Charmander("Wild Charmander"));
+            }
+            if(type == 4){
+                 pokemons.add(new Squirtle("Wild Squirtle"));
+            }
+            if(type == 5){
+                pokemons.add(new Bulbasaur("Wild Bulbasaur"));
             }
         }
         return pokemons;

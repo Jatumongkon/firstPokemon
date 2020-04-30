@@ -5,6 +5,7 @@ public  class Raichu  extends Pikachu{
         public Raichu(String name){
             super(name,500);
             setMaxEXP(100);
+            setImage("Raichu.png");
             
         }
        
@@ -14,7 +15,7 @@ public  class Raichu  extends Pikachu{
             enemy.damage(10);
             if(((int)(Math.random()*5))>3){
                 enemy.damage(10);
-                System.out.println(getName() + " use double attack");
+                System.out.println("\t\t"+getName() + " use double attack");
             }
             System.out.println(getName() + " HP: "+getHP()+"\t"+ enemy.getName()+" HP: "+enemy.getHP());
 

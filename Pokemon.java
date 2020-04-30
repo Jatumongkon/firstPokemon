@@ -8,10 +8,8 @@ public abstract  class Pokemon
     protected String name;
     protected int hP;
     private int ATK;
-    private int DEF; // Protect point;
-    private String type ;
-    private int staninaPoint ; // SP when pokemon use art for attack
-    private int maxSP;
+    private String image;
+    
     
     
     public Pokemon(String name){
@@ -27,6 +25,7 @@ public abstract  class Pokemon
     }
 
     public abstract void attack(Pokemon enemy);
+    public abstract void specialAttack(Pokemon enemy);
     
     public void setATK(int ATk) {
         this.ATK = ATk ;
@@ -66,7 +65,6 @@ public abstract  class Pokemon
     public void levelUP(){
         this.maxHP = this.maxHP +10;
         this.ATK = this.ATK+2;
-        this.DEF = this.DEF +1;
         this.EXP = 0;
         this.maxEXP = this.maxEXP +10;
         this.level+=1;
@@ -88,28 +86,8 @@ public abstract  class Pokemon
         return this.maxEXP;
     }
 
-    public void setType(String type){
-        this.type = type ; 
-    }
-    public String getType(){
-        return this.type;
-    }
+  
 
-    public void setMaxSP(int sP){
-        this.maxSP = sP;
-    }
-    public void plusSP(int sP){
-        this.staninaPoint=this.staninaPoint + sP;
-        if(this.maxHP <= this.staninaPoint){
-            this.staninaPoint = this.maxHP;
-        }
-    }
-    public int getSP(){
-        return this.staninaPoint;
-    }
-    public int getMaxSP(){
-        return this.maxSP;
-    }
 
 
     public void setName( String name){
@@ -145,6 +123,13 @@ public abstract  class Pokemon
     }
     public String toString(){
         return name;
+    }
+
+    public void setImage(String s){
+        this.image =s;
+    }
+    public String getImage(){
+        return this.image;
     }
 
 

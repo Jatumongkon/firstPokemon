@@ -18,7 +18,10 @@ public class PokemonStatus extends JFrame {
         JButton changeName = new JButton("Change name");
         JButton free = new JButton("free");
         JButton UpdateDisplay = new JButton("Update display");
+        JLabel imgLabel = new JLabel();
+        imgLabel.setIcon(new ImageIcon(new ImageIcon(pokemon.getImage()).getImage().getScaledInstance(400, 200, Image.SCALE_DEFAULT)));
         c.add(name);
+        c.add(imgLabel);
         c.add(hp);
         c.add(level);
         c.add(atk);
@@ -71,12 +74,13 @@ public class PokemonStatus extends JFrame {
                 atk.setText("ATK: "+pokemon.getATK());
                 level.setText("Level: " + pokemon.getLevel() + "EXP: "+ pokemon.getEXP()+"/"+pokemon.getMaxEXP());
                 eatBerry.setText("Eat berry (+20 hp) :"+t.getBerry());
+                imgLabel.setIcon(new ImageIcon(new ImageIcon(pokemon.getImage()).getImage().getScaledInstance(400, 200, Image.SCALE_DEFAULT)));
             }
         });
         c.setLayout(new BoxLayout(c, BoxLayout.Y_AXIS));
 
         
-        setSize(400, 300);
+        setSize(400, 500);
         setVisible(true);
 
     }

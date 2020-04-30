@@ -1,12 +1,13 @@
 
-public  class Charmander extends Pokemon{
-    public Charmander(String name){
+
+public  class Squirtle extends Pokemon{
+    public Squirtle(String name){
         super(name);
         setHP((int)(Math.random()*100));
         setMaxHP(this.hP);
         setATK(10);
         setMaxEXP(100);
-        setImage("Charmander.png");
+        setImage("Squirtle.png");
     }
    
 
@@ -18,16 +19,15 @@ public  class Charmander extends Pokemon{
 
     }
     public void specialAttack(Pokemon enemy){
+      System.out.println(getLevel());
         if(getLevel()>3){
-          if(((int)(Math.random()*9))>5){
-            enemy.damage(5); 
-            System.out.println("\t\t" + enemy.getName()+" burn");
+          if(((int)(Math.random()*20))>10){
+            enemy.damage(10); 
+            System.out.println("\t\t" + getName()+" specialAttack");
           }
+
         }
+
+
     }
 }
-
-      
-    
-
-

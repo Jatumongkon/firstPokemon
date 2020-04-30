@@ -5,6 +5,7 @@ public class  Kabigon extends Pokemon {
         setMaxHP((int)(Math.random()*500));
         this.hP =getMaxHP();
         setATK(5);
+        setImage("Kabigon.png");
          
     }
    
@@ -15,6 +16,15 @@ public class  Kabigon extends Pokemon {
         System.out.println(getName() + " HP: "+getHP()+"\t"+ enemy.getName()+" HP: "+enemy.getHP());
 
     }
+    public void specialAttack(Pokemon enemy){
+        if(getLevel()>3){
+          if(((int)(Math.random()*20))>17){
+            eatBerry();
+            System.out.println("\t\t" + getName()+" sleep");
+          }
+
+      }
 
 
+}
 }

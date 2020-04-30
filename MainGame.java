@@ -18,6 +18,7 @@ public class MainGame extends JFrame{
         JButton gym = new JButton("Goiong to gym");
         JLabel Satoshi = new JLabel(new ImageIcon(getClass().getResource("Satoshi.jpg")));
         JLabel gymLabel = new JLabel("If you win 3 GYM ,you get more EXP");
+        JButton goHospital = new JButton("Go Hospital");
 
         c.add(trainerNameLabel);
         c.add(Statusbag);
@@ -26,11 +27,12 @@ public class MainGame extends JFrame{
         c.add(gym);
         c.add(Satoshi);
         c.add(gymLabel);
+        c.add(goHospital);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         c.setLayout(null);
 
 
-        setBounds(100, 100, 600, 450);
+        setBounds(100, 100, 600, 500);
         int n = 250;
         trainerNameLabel.setBounds(200,10,100, 25);
         Satoshi.setBounds(200,50,200, 200);
@@ -38,8 +40,8 @@ public class MainGame extends JFrame{
         CatchButton.setBounds(200,55+n,  200, 25);
         capacitybag.setBounds(200, 80+n,  200, 25);
         gym.setBounds(200, 105+n,  200, 25);
-        gymLabel.setBounds(200, 130+n,  200, 25);
-
+        goHospital.setBounds(200, 130+n,  200, 25);
+        gymLabel.setBounds(200, 155+n,  200, 25);
 
 
         setVisible(true);
@@ -80,7 +82,16 @@ public class MainGame extends JFrame{
             }
 
         });
-        
+        goHospital.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent b){
+            for(Pokemon p: trainer.getBag()) {
+                p.setHP(p.getMaxHP());
+            }   
+                     System.out.println("Hospital");
+            }
+           
+
+        });
 
     }
     public void goGYM(Trainer trainer){
