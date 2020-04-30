@@ -102,6 +102,7 @@ public class MainGame extends JFrame{
             "status",
             JOptionPane.WARNING_MESSAGE);
             win(trainer);
+            trainer.setGymWin(0);
     }
          else if(trainer.getGymWin()<3){
             System.out.print("test Gym ");

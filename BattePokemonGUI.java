@@ -27,7 +27,7 @@ public class BattePokemonGUI extends JFrame{
 		String[] array = pokemonname.toArray(new String[pokemonname.size()]);
 		JComboBox comboBox = new JComboBox(array);
 		comboBox.setSelectedIndex((numberPokemon-1));
-		comboBox.setBounds(200, 76, 107, 20);
+		comboBox.setBounds(150, 76, 107, 20);
 		c.add(comboBox);
 		JButton btn = new JButton("Choose");
 		btn.addActionListener(new ActionListener() {
@@ -89,7 +89,7 @@ public class BattePokemonGUI extends JFrame{
 					battleEND = true;
 			
 		}});
-		btn.setBounds(200, 123, 81, 23);
+		btn.setBounds(160, 123, 81, 23);
 		c.add(btn);
 		c.add(comboBox);
 

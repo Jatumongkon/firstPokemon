@@ -21,17 +21,10 @@ public  class Pikachu extends Pokemon{
             System.out.println("Pokemon " + getName() + " attack " + enemy.getName());
             enemy.damage(getATK()); 
             System.out.println(getName() + " HP: "+getHP()+"\t"+ enemy.getName()+" HP: "+enemy.getHP());
-            specialAttack(enemy);
 
         }
         public void specialAttack(Pokemon enemy){
-            if(this.hP<10){
-                setImage("Pikachu2.png");
-            }
-            else{
-                setImage("Pikachu.png");
-            }
-          
+            
               }
     
           
